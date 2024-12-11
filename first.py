@@ -6,7 +6,6 @@ import csv
 chromium_path = r"C:\Users\gmedh\OneDrive\Documents\chrome-win\chrome-win\chrome.exe"
 
 async def scroll_to_load_all(page):
-    """Scroll down the page until all cars are loaded."""
     previous_height = None
     while True:
         current_height = await page.evaluate('document.body.scrollHeight')
@@ -30,7 +29,7 @@ async def fetch_car_listings(url):
         # Extract page content
         content = await page.content()
         await browser.close()
-
+ga
         # Parse the page with BeautifulSoup
         soup = BeautifulSoup(content, 'html.parser')
         return soup
@@ -82,11 +81,11 @@ async def extract_and_save_data():
         # Save data to CSV
         if car_data:
             keys = car_data[0].keys()
-            with open('car_listings.csv', 'w', newline='', encoding='utf-8') as output_file:
+            with open('Sylndr_car_listings.csv', 'w', newline='', encoding='utf-8') as output_file:
                 writer = csv.DictWriter(output_file, fieldnames=keys)
                 writer.writeheader()
                 writer.writerows(car_data)
-            print(f"Saved {len(car_data)} car listings to 'car_listings.csv'.")
+            print(f"Saved {len(car_data)} car listings to 'Sylndr_car_listings.csv'.")
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(extract_and_save_data())
