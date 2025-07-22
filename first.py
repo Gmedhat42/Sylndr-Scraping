@@ -29,7 +29,7 @@ async def fetch_car_listings(url):
         # Extract page content
         content = await page.content()
         await browser.close()
-ga
+
         # Parse the page with BeautifulSoup
         soup = BeautifulSoup(content, 'html.parser')
         return soup
